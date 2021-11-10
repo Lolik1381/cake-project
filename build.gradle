@@ -36,7 +36,7 @@ liquibase {
 			if (project.hasProperty('contexts')) {
 				contexts contexts
 			}
-			changeLogFile "${project.name}/gradle-getting-started/src/main/resources/db/changelog/master-changelog.xml"
+			changeLogFile "${project.name}/src/main/resources/db/changelog/master-changelog.xml"
 			url "jdbc:postgresql://ec2-34-196-34-142.compute-1.amazonaws.com:5432/dbjrg34fp2l5hq"
 			username "uulmmrgtokbnwa"
 			password "0e3e8f3e016029d1d800bd85b4b302fc005394031f6e8780d08e1a6eb626430d"
