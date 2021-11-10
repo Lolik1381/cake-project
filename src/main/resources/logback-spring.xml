@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+    <property name="CONSOLE_LOG_PATTERN" value="%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr([%X{req.remoteHost}]){faint} %clr([%X{req.userAgent}]){faint} %clr([%X{req.xForwardedFor}]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
+
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+    <logger name="org.hibernate.SQL" level="info" additivity="false">
+        <appender-ref ref="CONSOLE" />
+    </logger>
+
+    <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="info" additivity="false">
+        <appender-ref ref="CONSOLE" />
+    </logger>
+
+    <root level="info">
+        <appender-ref ref="CONSOLE" />
+    </root>
+</configuration>

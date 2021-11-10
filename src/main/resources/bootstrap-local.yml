@@ -1,0 +1,14 @@
+---
+spring:
+  application:
+    name: cake
+
+  main:
+    banner-mode: 'OFF'
+
+  cloud:
+    kubernetes:
+      secrets:
+        enableApi: false
+      config:
+        enableApi: false

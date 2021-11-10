@@ -1,0 +1,12 @@
+---
+spring:
+  application:
+    name: cake
+
+  main:
+    banner-mode: 'OFF'
+
+  cloud:
+    kubernetes:
+      secrets:
+        paths: /etc/secrets
