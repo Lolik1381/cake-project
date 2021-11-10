@@ -1,7 +1,7 @@
 ---
 spring:
   application:
-    name: cake
+    name: gradle-getting-started
 
   main:
     banner-mode: 'OFF'

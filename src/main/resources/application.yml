@@ -11,9 +11,9 @@ spring:
         jdbc.lob.non_contextual_creation: true
         dialect: org.hibernate.dialect.PostgreSQL92Dialect
 
-  jackson:
-    deserialization:
-      READ_UNKNOWN_ENUM_VALUES_USING_DEFAULT_VALUE: true
+#  jackson:
+#    deserialization:
+#      READ_UNKNOWN_ENUM_VALUES_USING_DEFAULT_VALUE: true
 
   liquibase:
     enabled: false
@@ -23,6 +23,10 @@ spring:
     url: ${JDBC_DATABASE_URL:}
     username: uulmmrgtokbnwa
     password: 0e3e8f3e016029d1d800bd85b4b302fc005394031f6e8780d08e1a6eb626430d
+#    url: jdbc:postgresql://localhost:5432/postgres?reWriteBatchedInserts=true
+#    username: postgres
+#    password: postgres
+
 
 management:
   endpoints:
