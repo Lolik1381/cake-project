@@ -7,6 +7,6 @@
         <tagDatabase tag="INITIAL"/>
     </changeSet>
 
-    <include file="1.0/10112021_create_table.sql" relativeToChangelogFile="true" />
+    <include file="1.0/20211111_create_db.sql" relativeToChangelogFile="true" />
 
 </databaseChangeLog>
