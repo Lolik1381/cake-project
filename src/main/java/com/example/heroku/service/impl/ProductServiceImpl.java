@@ -4,7 +4,6 @@ import com.example.heroku.entity.ProductEntity;
 import com.example.heroku.mapper.ProductMapper;
 import com.example.heroku.model.Product;
 import com.example.heroku.model.ResponsePage;
-import com.example.heroku.repository.ProductRepository;
 import com.example.heroku.repository.core.CoreProductRepository;
 import com.example.heroku.service.ProductService;
 import com.example.heroku.util.PageableUtils;
@@ -41,6 +40,6 @@ public class ProductServiceImpl implements ProductService {
     @Override
     @Transactional(readOnly = true)
     public Product findById(String id) {
-        return productMapper.toDto(productRepository.findByIdOrElseThrow(id));
+        return productMapper.toDto(productRepository.findByIdOrElseNull(id));
     }
 }

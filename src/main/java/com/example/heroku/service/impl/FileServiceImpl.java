@@ -19,7 +19,7 @@ public class FileServiceImpl implements FileService {
 
     @Override
     public byte[] getFile(String id) {
-        FileEntity file = fileRepository.findByIdOrElseThrow(id);
+        FileEntity file = fileRepository.findByIdOrElseNull(id);
 
         return file.getImage();
     }

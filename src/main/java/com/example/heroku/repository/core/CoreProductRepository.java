@@ -30,10 +30,8 @@ public class CoreProductRepository {
         return productRepository.findAll(specification, pageable);
     }
 
-    public ProductEntity findByIdOrElseThrow(String id) {
-        return productRepository.findById(id).orElseThrow(() -> {
-            throw new EntityNotFoundException("Product with id = " + id + " not found");
-        });
+    public ProductEntity findByIdOrElseNull(String id) {
+        return productRepository.findById(id).orElse(null);
     }
 
     @SafeVarargs
