@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'db')}">
+
+<body>
+
+    <form onsubmit="updphoto()" name="updatePhoto">
+        <input type="file" required class="form-control" id="file" name="file">
+        <button type="submit" id="updatePhotoSubmit" class="btn btn-primary btn-lg">Отправить</button>
+    </form>
+
+</body>
+</html>
