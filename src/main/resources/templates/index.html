@@ -29,11 +29,11 @@
     <div class="container-fluid" style="justify-content: flex-end;">
       <div class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Search" id="inputSearch">
-        <input class="btn btn-outline-success" type="button" name="button_1" onclick="search();">
+        <button class="btn btn-outline-success" type="button" name="button_1" onclick="search();">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
           </svg>
-        </input>
+        </button>
 
         <div class="dropdown" style="margin-left: 8px;">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -49,30 +49,77 @@
   </div>
 
   <div class="container" style="margin-top: 10px;">
-    <div class="row row-cols-1 row-cols-md-3 g-4" id="products">
-<!--      <a href="#" class="a-style">-->
-<!--        <div class="col">-->
-<!--          <div class="card h-100">-->
-<!--            <img th:src="@{~/images/logo.svg}" class="card-img-top img-card">-->
-<!--            <div class="card-body">-->
-<!--              <h5 class="card-title">NAME</h5>-->
-<!--              <p class="card-text">2000 Р</p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </a>-->
+    <div class="row g-0">
+      <div class="col-6 col-md-4 checkbox-div">
+        <div class="checkbox-div-container">
+          <h6>Раздел</h6>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="checkbox1">
+            <label class="form-check-label" for="checkbox1">
+              Бисквитные торты
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="checkbox2">
+            <label class="form-check-label" for="checkbox2">
+              Детсвие торты
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="checkbox3">
+            <label class="form-check-label" for="checkbox3">
+              Классические торты
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="checkbox4">
+            <label class="form-check-label" for="checkbox4">
+              Оригинальные торты
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="checkbox5">
+            <label class="form-check-label" for="checkbox5">
+              Торты
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-8" style="width: 78%; margin-left: 2%">
+        <div class="row row-cols-1 row-cols-md-3 g-4" id="products"></div>
+      </div>
+    </div>
 
-
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <button class="btn btn-outline-success" type="button" id="buttonAddMore" onclick="addMore();">Загрузить еще</button>
     </div>
   </div>
 
-<!--&lt;!&ndash;&ndash;&gt;-->
-<!--  <input name="button_1" id="button_1" type="button" value="button_1" onclick="getText1('<%=request.getContextPath()%>');" />-->
-<!--  <input name="button_2" id="button_2" type="button" value="button_2" onclick="getText2('<%=request.getContextPath()%>');" />-->
+  <div class="blockquote-footer">
+    <div class="align-content-center" style="background-color: #e5f2e8;">
+      <div class="container" style="padding: 0 100px;">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card card-border-fix">
+              <div class="card-body">
+                <h5 class="card-title" style="font-size: 42px; color: black;">Готовые торты Cream Royal</h5>
+                <p class="card-text" style="font-size: 18px;">В кондитерской Крем Роял можно купить готовые торты с доставкой по Москве и Московской области. Мы занимаемся изготовлением тортов с 2006 года и наш опыт позволяет предлагать лучшие цены от производителя. Для особых случаев и праздников у нас также можно заказать торт с индивидуальным дизайном и украшениями, выбрав любую начинку из готовых.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card card-border-fix">
+              <div class="card-body">
+                <p class="card-text" style="font-size: 18px;">В каталоге вы найдете более 40 видов тортов с начинками и коржами на любой вкус. Помимо классических тортов таких как: тирамису, морковный торт, медовик, красный бархат, киевский торт, торт птичье молоко, графские развалины, трюфель и чизкейки, вы найдете торты, изготовленные по авторскому рецепту от нашего шефа: маракайбо, бейлис, джованни и другие. Все торты свежие и в наличии и доступы для заказа онлайн на нашем сайте.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<!--  <div id="result" style="display:none"></div>-->
-<!--&lt;!&ndash;&ndash;&gt;-->
-
+  <script th:src="@{~/scripts/main.js}"></script>
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>

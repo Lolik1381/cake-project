@@ -1,5 +1,6 @@
 package com.example.heroku.controller;
 
+import com.example.heroku.model.File;
 import com.example.heroku.service.FileService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class FileController {
     }
 
     @PostMapping(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public void upload(@RequestPart("file") MultipartFile file) throws IOException {
-        fileService.upload(file);
+    public @ResponseBody File upload(@RequestPart("file") MultipartFile file) throws IOException {
+        return fileService.upload(file);
     }
 }

@@ -8,4 +8,5 @@ public interface ProductService {
 
     ResponsePage<Product> getAllProducts(String searchText, Pageable pageable);
     Product findById(String id);
+    Product create(Product product);
 }

@@ -53,6 +53,31 @@
 }
 
 .img-card {
-  width: 415px;
-  height: 415px;
+  width: 90%;
+  margin: 20px;
+  height: auto;
+}
+
+.card-border-fix {
+  border: none;
+  border-radius: 0;
+  background-color: #e5f2e8;
+}
+
+.card-border-content-fix {
+  border: none;
+  border-radius: 0;
+}
+
+.checkbox-div {
+  width: 20%;
+  background-color: #e5f2e8;
+}
+
+.checkbox-div-container {
+  margin: 20px;
+}
+
+.span-fix {
+  width: 180px;
 }
