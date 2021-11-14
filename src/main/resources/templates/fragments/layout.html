@@ -13,16 +13,18 @@
 <body>
     <nav class="navbar navbar-light navbar-static-top" style="background-color: #e3f2fd;">
         <div class="container" >
-            <a class="navbar-brand fix-padding" href="#">
+            <a class="navbar-brand fix-padding" href="/">
                 <img th:src="@{~/images/logo.svg}" class="main-logo">
             </a>
 
-            <ul class="nav navbar-nav">
-                <li class="active">
-                    <a href="/">ТОРТЫ</a>
+            <ul class="nav" style="display: flex;flex-direction: row;padding-left: 0;margin-bottom: 0;margin-right: 50%;list-style: none;">
+                <li class="fragment-li-style" id="catalog_li">
+                    <a href="/">КАТАЛОГ ТОРТОВ</a>
                 </li>
-                <li>
-                    <a href="/">КОРЗИНА</a>
+                <li class="fragment-li-style" id="bucket_li">
+                    <a href="/bucket" id="bucket">
+                        КОРЗИНА (0)
+                    </a>
                 </li>
             </ul>
         </div>

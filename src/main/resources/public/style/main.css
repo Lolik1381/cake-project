@@ -55,7 +55,10 @@
 .img-card {
   width: 90%;
   margin: 20px;
-  height: auto;
+  /*height: auto;*/
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .card-border-fix {
@@ -80,4 +83,73 @@
 
 .span-fix {
   width: 180px;
+}
+
+.button-center-block {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.fix-p-3 {
+  background-color: white;
+  border: none;
+}
+
+.fragment-li-style {
+  margin-right: 20px;
+}
+
+.fragment-li-style > a {
+  color: black;
+  text-decoration: none;
+}
+
+/*.btn-circle {*/
+/*  width: 30px;*/
+/*  height: 30px;*/
+/*  text-align: center;*/
+/*  padding: 6px 0;*/
+/*  font-size: 12px;*/
+/*  line-height: 1.42;*/
+/*  border-radius: 15px;*/
+/*}*/
+
+/*.arrows_circle_minus {*/
+/*  background-image: url("../images/arrows_circle_minus.svg");*/
+/*  width: 16px;*/
+/*  height: 16px;*/
+/*}*/
+
+/*.arrows_circle_plus {*/
+/*  background-image: url("../images/arrows_circle_plus.svg");*/
+/*  width: 16px;*/
+/*  height: 16px;*/
+/*}*/
+
+.arrows-circle {
+  width: 16px;
+  height: 16px;
+}
+
+.arrows-button {
+  outline: none;
+  border: 0;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+}
+
+.p-arrows {
+  margin-left: 8px;
+  margin-top: 2px;
+}
+
+.bucket-product-img {
+  width: 100px;
+  height: 100px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin: 5px;
 }

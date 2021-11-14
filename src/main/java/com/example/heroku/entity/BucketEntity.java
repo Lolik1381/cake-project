@@ -51,7 +51,7 @@ public class BucketEntity {
 
     @Builder
     public BucketEntity(@NonNull UserDataEntity userData, @NonNull ProductEntity product, @NonNull Long numberProduct) {
-        this.id = new BucketId(userData.getId(), product.getId());
+        this.id = new BucketEntity.BucketId(userData.getId(), product.getId());
         this.userData = userData;
         this.product = product;
         this.numberProduct = numberProduct;
