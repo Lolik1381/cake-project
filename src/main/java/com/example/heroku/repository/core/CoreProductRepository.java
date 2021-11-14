@@ -34,6 +34,10 @@ public class CoreProductRepository {
         return productRepository.findById(id).orElse(null);
     }
 
+    public ProductEntity save(ProductEntity productEntity) {
+        return productRepository.save(productEntity);
+    }
+
     @SafeVarargs
     @SuppressWarnings("ConstantConditions")
     private static Specification<ProductEntity> combineSpecifications(Specification<ProductEntity> ... specifications) {

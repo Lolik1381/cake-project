@@ -8,5 +8,6 @@
     </changeSet>
 
     <include file="1.0/20211111_create_db.sql" relativeToChangelogFile="true" />
+    <include file="1.0/20211211_insert_product_type.sql" relativeToChangelogFile="true" />
 
 </databaseChangeLog>
