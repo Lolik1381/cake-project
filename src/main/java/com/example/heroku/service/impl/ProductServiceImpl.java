@@ -11,6 +11,7 @@ import com.example.heroku.repository.ProductTypeRepository;
 import com.example.heroku.repository.core.CoreProductRepository;
 import com.example.heroku.service.ProductService;
 import com.example.heroku.util.PageableUtils;
+import com.example.heroku.util.sorting.SortFieldMatcherFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -34,10 +35,10 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     @Transactional(readOnly = true)
-    public ResponsePage<Product> getAllProducts(String searchText, Pageable pageable) {
-        pageable = PageableUtils.sortById(pageable);
+    public ResponsePage<Product> getAllProducts(String searchText, List<String> productTypes, Pageable pageable) {
+        pageable = PageableUtils.applySorting(pageable, SortFieldMatcherFactory.getSortFieldMatcher(Product.class));
 
-        Page<ProductEntity> productEntityPage = productRepository.findAll(searchText, pageable);
+        Page<ProductEntity> productEntityPage = productRepository.findAll(searchText, productTypes, pageable);
         List<Product> products = productEntityPage.stream()
                 .map(productMapper::toDto)
                 .collect(Collectors.toList());

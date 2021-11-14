@@ -1,10 +1,12 @@
+const bucketName = "bucket"
 let currentPage = 0
 let maxPage = 0;
 let lastSearchText = ""
+let lastUrl = ""
 
 async function loadProducts(searchText) {
     let url = "/products/findAll?page=0&size=21&searchText=" + searchText
-    let response = await fetch(url)
+    let response = await fetchAdapter(url)
     lastSearchText = searchText
 
     if (response.ok) {
@@ -23,6 +25,13 @@ async function loadProducts(searchText) {
 async function search() {
     let searchText = document.getElementById("inputSearch").value
 
+    let selectedCheckBoxes = document.querySelectorAll('input.form-check-input:checked');
+    let checkedValues = Array.from(selectedCheckBoxes).map(cb => cb.value);
+
+    for (let i = 0; i < checkedValues.length; i++) {
+        searchText += "&productTypes=" + checkedValues[i]
+    }
+
     currentPage = 0
     await loadProducts(searchText)
 }
@@ -30,10 +39,27 @@ async function search() {
 async function addMore() {
     if (currentPage < maxPage) {
         let url = "/products/findAll?page=" + currentPage + "&size=20&searchText=" + lastSearchText
-        let response = await fetch(url)
+        let response = await fetchAdapter(url)
 
         addProducts(await response.json())
         hiddenAddMoreButtonIfLastPage()
+    }
+}
+
+async function sortFilter(param, type) {
+    let url = lastUrl + "&sort=" + param + "%2C" + type
+
+    let response = await fetchAdapter(url, false)
+    if (response.ok) {
+        clearProducts()
+
+        let productJson = await response.json()
+        addProducts(productJson)
+
+        hiddenAddMoreButtonIfLastPage()
+        console.log(productJson)
+    } else {
+        alert("Ошибка HTTP: " + response.status)
     }
 }
 
@@ -41,8 +67,6 @@ addProducts = function (productJson) {
     currentPage++;
     maxPage = productJson.page.totalPages
     showAddMoreButton()
-    console.log(currentPage)
-    console.log(maxPage)
 
     for (let i = 0; i < productJson.content.length; i++) {
         let urlImage = window.location.origin + "/file/" + productJson.content[i].file.id
@@ -64,7 +88,7 @@ addProducts = function (productJson) {
 }
 
 hiddenAddMoreButtonIfLastPage = function () {
-    if (currentPage === maxPage) {
+    if (currentPage >= maxPage) {
         document.getElementById('buttonAddMore').hidden = true
     }
 }
@@ -75,10 +99,44 @@ showAddMoreButton = function () {
     }
 }
 
+addProductType = async function () {
+    let url = window.location.origin + "/productType/all"
+
+    let response = await fetchAdapter(url)
+    if (response.ok) {
+        let json = await response.json()
+
+        for (let i = 0; i < json.length; i++) {
+            document.getElementById('checkbox-container').innerHTML +=
+                "<div class=\"form-check\">\n" +
+                "            <input class=\"form-check-input\" type=\"checkbox\" value=\"" + json[i].id + "\" id=\"checkbox" + (i + 1) + "\">\n" +
+                "            <label class=\"form-check-label\" for=\"checkbox" + (i + 1) + "\">\n" + json[i].name +
+                "            </label>\n" +
+                "          </div>"
+        }
+    }
+}
+
+fetchAdapter = function (url, adapter = true) {
+    if (adapter) {
+        lastUrl = url
+    }
+
+    return fetch(url)
+}
+
 function clearProducts() {
     document.getElementById('products').innerHTML = null;
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    loadProducts("");
+    if (localStorage.getItem(bucketName) != null) {
+        let size = JSON.parse(localStorage.getItem(bucketName)).length
+        document.getElementById("bucket").innerHTML = "КОРЗИНА (" + size + ")"
+    }
+
+    document.getElementById("catalog_li").classList.add("active");
+
+    loadProducts("")
+    addProductType()
 });

@@ -1,37 +1,28 @@
 package com.example.heroku.controller;
 
+import com.example.heroku.model.City;
+import com.example.heroku.service.CityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+
+import java.util.List;
 
 @Controller
 @ResponseStatus(HttpStatus.OK)
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class MainController {
+@RequestMapping("/city")
+public class CityController {
 
-    @RequestMapping("/")
-    String index() {
-        return "index";
-    }
+    private final CityService cityService;
 
-    @RequestMapping("/admin/index")
-    String adminIndex() {
-        return "admin/index";
-    }
-
-    @GetMapping("/product/index/{id}")
-    public String getProductIndex(@PathVariable("id") String id) {
-        return "product/index";
-    }
-
-    @GetMapping("/bucket")
-    public String getBucket() {
-        return "bucket/index";
+    @GetMapping
+    public @ResponseBody List<City> findAll() {
+        return cityService.findAll();
     }
 }

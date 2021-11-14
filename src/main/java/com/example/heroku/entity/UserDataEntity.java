@@ -8,14 +8,17 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "user_date")
@@ -24,7 +27,7 @@ import java.time.LocalDate;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDateEntity {
+public class UserDataEntity {
 
     @Id
     @Column(name = "id", nullable = false, updatable = false, unique = true)
@@ -70,7 +73,7 @@ public class UserDateEntity {
     private String floor;
 
     @Column(name = "apartment_office")
-    private String apartment_office;
+    private String apartmentOffice;
 
     @Column(name = "intercom")
     private String intercom;
@@ -85,5 +88,10 @@ public class UserDateEntity {
     private DeliveryIntervalEntity deliveryInterval;
 
     @Column(name = "delivery_date")
-    private LocalDate delivery_date;
+    private LocalDate deliveryDate;
+
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "userData", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<BucketEntity> bucket;
 }

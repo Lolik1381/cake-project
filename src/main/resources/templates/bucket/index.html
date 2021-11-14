@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'db')}">
+
+<body>
+
+    <div class="container" style="width: 538px; margin-top: 50px;">
+        <form action="javascript:create()">
+            <h6>Ваш заказ:</h6>
+            <hr />
+            <div id="products"></div>
+            <hr />
+            <div style="max-width: 540px;text-align: right;" id="cost"></div>
+
+            <div class="form-floating mb-3" style="margin-top: 15px;">
+                <input type="text" class="form-control" id="FIO" required placeholder="name@example.com">
+                <label for="FIO">Фамилия, имя, отчество</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                <label for="email">Ваш email</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="phone" placeholder="name@example.com">
+                <label for="phone">Номер телефона</label>
+            </div>
+            <br>
+            <strong>Доставка</strong>
+            <div class="form-floating mb-3" style="margin-top: 15px;">
+                <select class="form-select" id="city" aria-label="Floating label select example"></select>
+                <label for="city">Город</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="street" placeholder="name@example.com">
+                <label for="street">Улица</label>
+            </div>
+            <div class="row g-2 mb-3">
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="house">
+                        <label for="house">Дом</label>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="entrance">
+                        <label for="entrance">Подъезд</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-2 mb-3">
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floor">
+                        <label for="floor">Этаж</label>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="apartment_office">
+                        <label for="apartment_office">Квартира</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-floating col-md mb-3">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="intercom">
+                    <label for="intercom">Домофон</label>
+                </div>
+            </div>
+            <div class="form-floating col-md mb-3">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="comment">
+                    <label for="comment">Комментарий</label>
+                </div>
+            </div>
+            <div class="form-floating col-md mb-3">
+                <div class="form-floating">
+                    <input type="date" class="form-control" id="date">
+                    <label for="date">Дата доставки</label>
+                </div>
+            </div>
+
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <input class="btn btn-primary" value="Оформить заказ" type="submit">
+            </div>
+        </form>
+    </div>
+
+    <script th:src="@{~/scripts/bucket.js}"></script>
+</body>
+</html>

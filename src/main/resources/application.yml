@@ -20,12 +20,12 @@ spring:
 
   datasource:
     driver-class-name: org.postgresql.Driver
-#    url: ${JDBC_DATABASE_URL:}
-#    username: uulmmrgtokbnwa
-#    password: 0e3e8f3e016029d1d800bd85b4b302fc005394031f6e8780d08e1a6eb626430d
-    url: jdbc:postgresql://localhost:5432/postgres?reWriteBatchedInserts=true
-    username: postgres
-    password: postgres
+    url: ${JDBC_DATABASE_URL:}
+    username: uulmmrgtokbnwa
+    password: 0e3e8f3e016029d1d800bd85b4b302fc005394031f6e8780d08e1a6eb626430d
+#    url: jdbc:postgresql://localhost:5432/postgres?reWriteBatchedInserts=true
+#    username: postgres
+#    password: postgres
 
 
 management:

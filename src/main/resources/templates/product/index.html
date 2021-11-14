@@ -3,7 +3,67 @@
 
 <body>
 
+    <div class="container" style="margin-top: 20px;">
+        <div class="row g-2">
+            <div class="col-6">
+                <div class="p-3" id="img"></div>
+            </div>
+            <div class="col-6">
+                <div class="p-3">
+                    <div id="id" hidden></div>
+                    <h2 id="name"></h2>
+                    <h6 id="cost"></h6>
+                    <br>
+                    <button type="button" class="btn btn-primary btn-sm" onclick="order()">Заказать</button>
+                    <br>
+                    <span id="description"></span>
+                    <br>
+                    <br>
+                    <span>
+                        <strong id="weight">Вес: 1,450 кг </strong>
+                        <br>
+                        Пищевая и энергетическая ценность на 100 г продукта (средние значения):
+                        <br>
+                        <div id="worth"></div>
+                    </span>
+                    <br>
+                    <br>
+                    <span>
+                        <strong>Состав: </strong>
+                        <br>
+                        <div id="composition"></div>
+                        <br>
+                        <br>
+                        Возможно попадание ореховой скорлупы и плодово-ягодных косточек. Продукт может содержать следы ингредиентов, вызывающих аллергию (орехи, арахис и продукты их переработки)
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="blockquote-footer" style="margin-top: 40px;">
+        <div class="align-content-center" style="background-color: #e5f2e8;">
+            <div class="container" style="padding: 0 100px;">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card card-border-fix">
+                            <div class="card-body">
+                                <h5 class="card-title" style="font-size: 42px; color: black;">Готовые торты Cream Royal</h5>
+                                <p class="card-text" style="font-size: 18px;">В кондитерской Крем Роял можно купить готовые торты с доставкой по Москве и Московской области. Мы занимаемся изготовлением тортов с 2006 года и наш опыт позволяет предлагать лучшие цены от производителя. Для особых случаев и праздников у нас также можно заказать торт с индивидуальным дизайном и украшениями, выбрав любую начинку из готовых.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card card-border-fix">
+                            <div class="card-body">
+                                <p class="card-text" style="font-size: 18px;">В каталоге вы найдете более 40 видов тортов с начинками и коржами на любой вкус. Помимо классических тортов таких как: тирамису, морковный торт, медовик, красный бархат, киевский торт, торт птичье молоко, графские развалины, трюфель и чизкейки, вы найдете торты, изготовленные по авторскому рецепту от нашего шефа: маракайбо, бейлис, джованни и другие. Все торты свежие и в наличии и доступы для заказа онлайн на нашем сайте.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script th:src="@{~/scripts/product.js}"></script>
 </body>
