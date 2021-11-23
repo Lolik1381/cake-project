@@ -24,7 +24,7 @@ apply plugin: 'io.spring.dependency-management'
 
 group = 'com.example'
 version = '1.0'
-sourceCompatibility = '1.8'
+sourceCompatibility = "1.9"
 
 repositories {
 	mavenCentral()
@@ -37,12 +37,12 @@ liquibase {
 				contexts contexts
 			}
 			changeLogFile "/Users/a18914814/gradle-getting-started/src/main/resources/db/changelog/master-changelog.xml"
-//			url "jdbc:postgresql://ec2-34-196-34-142.compute-1.amazonaws.com:5432/dbjrg34fp2l5hq"
-//			username "uulmmrgtokbnwa"
-//			password "0e3e8f3e016029d1d800bd85b4b302fc005394031f6e8780d08e1a6eb626430d"
-			url "jdbc:postgresql://localhost:5432/postgres?reWriteBatchedInserts=true"
-			username "postgres"
-			password "postgres"
+			url "jdbc:postgresql://ec2-34-196-34-142.compute-1.amazonaws.com:5432/dbjrg34fp2l5hq"
+			username "uulmmrgtokbnwa"
+			password "0e3e8f3e016029d1d800bd85b4b302fc005394031f6e8780d08e1a6eb626430d"
+//			url "jdbc:postgresql://localhost:5432/postgres?reWriteBatchedInserts=true"
+//			username "postgres"
+//			password "postgres"
 		}
 	}
 }
@@ -53,6 +53,8 @@ dependencies {
 
 	compileOnly 'org.mapstruct:mapstruct:1.4.2.Final'
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
+
+	annotationProcessor "org.hibernate:hibernate-jpamodelgen"
 
 	implementation "org.liquibase:liquibase-core"
 	liquibaseRuntime "ch.qos.logback:logback-core"
@@ -69,6 +71,7 @@ dependencies {
 	implementation "com.fasterxml.jackson.core:jackson-databind"
 	implementation "org.apache.commons:commons-lang3:3.12.0"
 	implementation "org.apache.commons:commons-collections4:4.4"
+	implementation "javax.validation:validation-api:2.0.1.Final"
 
 	runtimeOnly 'org.postgresql:postgresql'
 	runtimeOnly 'org.webjars:jquery:3.3.1-1'
@@ -78,3 +81,4 @@ dependencies {
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
+targetCompatibility = JavaVersion.VERSION_1_9

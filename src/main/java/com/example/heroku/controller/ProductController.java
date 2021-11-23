@@ -1,6 +1,7 @@
 package com.example.heroku.controller;
 
 import com.example.heroku.model.Product;
+import com.example.heroku.model.ProductType;
 import com.example.heroku.model.ResponsePage;
 import com.example.heroku.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import java.util.List;
+
 @Controller
 @ResponseStatus(HttpStatus.OK)
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
@@ -26,8 +29,10 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping("/findAll")
-    public @ResponseBody ResponsePage<Product> findAll(@RequestParam(required = false) String searchText, Pageable pageable) {
-        return productService.getAllProducts(searchText, pageable);
+    public @ResponseBody ResponsePage<Product> findAll(@RequestParam(required = false) String searchText,
+                                                       @RequestParam(required = false) List<String> productTypes,
+                                                       Pageable pageable) {
+        return productService.getAllProducts(searchText, productTypes, pageable);
     }
 
     @GetMapping("/{id}")
