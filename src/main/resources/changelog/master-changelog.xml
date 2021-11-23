@@ -9,5 +9,7 @@
 
     <include file="1.0/20211111_create_db.sql" relativeToChangelogFile="true" />
     <include file="1.0/20211211_insert_product_type.sql" relativeToChangelogFile="true" />
+    <include file="1.0/20212011_insert_dictionary.sql" relativeToChangelogFile="true" />
+    <include file="1.0/20212211_create_bucket.sql" relativeToChangelogFile="true" />
 
 </databaseChangeLog>
