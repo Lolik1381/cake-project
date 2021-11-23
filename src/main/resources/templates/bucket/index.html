@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'db')}">
 
-<body>
+<body class="back-image-body">
+    <!--    Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body" id="model-message"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ок</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <div class="container" style="width: 538px; margin-top: 50px;">
+
+    <div class="container" style="width: 538px; margin-top: 50px; background-color: white; border-radius: 10px;">
         <form action="javascript:create()">
+            <br>
             <h6>Ваш заказ:</h6>
             <hr />
             <div id="products"></div>
@@ -16,11 +29,11 @@
                 <label for="FIO">Фамилия, имя, отчество</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                <input type="email" class="form-control" id="email" required placeholder="name@example.com">
                 <label for="email">Ваш email</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="phone" placeholder="name@example.com">
+                <input type="text" class="form-control" id="phone" required placeholder="name@example.com">
                 <label for="phone">Номер телефона</label>
             </div>
             <br>
@@ -30,13 +43,13 @@
                 <label for="city">Город</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="street" placeholder="name@example.com">
+                <input type="text" class="form-control" id="street" required placeholder="name@example.com">
                 <label for="street">Улица</label>
             </div>
             <div class="row g-2 mb-3">
                 <div class="col-md">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="house">
+                        <input type="text" class="form-control" required id="house">
                         <label for="house">Дом</label>
                     </div>
                 </div>
@@ -75,7 +88,7 @@
             </div>
             <div class="form-floating col-md mb-3">
                 <div class="form-floating">
-                    <input type="date" class="form-control" id="date">
+                    <input type="date" class="form-control" id="date" required>
                     <label for="date">Дата доставки</label>
                 </div>
             </div>
