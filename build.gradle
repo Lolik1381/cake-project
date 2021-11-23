@@ -24,7 +24,7 @@ apply plugin: 'io.spring.dependency-management'
 
 group = 'com.example'
 version = '1.0'
-sourceCompatibility = "1.9"
+sourceCompatibility = "1.8"
 
 repositories {
 	mavenCentral()
@@ -81,4 +81,3 @@ dependencies {
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
-targetCompatibility = JavaVersion.VERSION_1_9

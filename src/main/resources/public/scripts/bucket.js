@@ -4,6 +4,8 @@ let emptyMessage =
     "                В корзине нет продуктов :(" +
     "            </div>"
 let cost = 0
+let myModal
+let modelMessageInDocument
 
 async function loadAllBucket() {
     let getByIdUrl = window.location.origin + "/products/"
@@ -162,6 +164,12 @@ async function create() {
 
     FIO = FIO.split(" ", 3)
 
+    if (arrayProductsIdAndCount.length === 0) {
+        modelMessageInDocument.innerHTML = "Необходимо добавить хотя бы один продукт!"
+        myModal.show()
+        return
+    }
+
     let response = await fetch(url, {
         method: 'POST',
         headers: {
@@ -192,6 +200,12 @@ async function create() {
     if (response.ok) {
         localStorage.setItem(bucketName, JSON.stringify([]))
         updateBucketNumbers()
+
+        modelMessageInDocument.innerHTML = "Ваш заказ принят в обработку!\nОжидайте звонка от менеджера."
+        myModal.show()
+    } else {
+        modelMessageInDocument.innerHTML = "Мы не смогли обработать запрос :(\nОбратитесь к администратору за помощью."
+        myModal.show()
     }
 }
 
@@ -235,6 +249,9 @@ updateBucketNumbers = function () {
 }
 
 document.addEventListener("DOMContentLoaded", async function () {
+    myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {})
+    modelMessageInDocument = document.getElementById("model-message")
+
     updateBucketNumbers()
 
     document.getElementById("bucket_li").classList.add("active");

@@ -2,76 +2,54 @@
 <html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'db')}">
 
 <body>
+    <!--    Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body" id="model-message"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ок</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
    <div class="container" style="padding: 20px;">
-<!--       <form onsubmit="productForm()" name="updatePhoto">-->
-<!--           <div class="input-group mb-3">-->
-<!--               <span class="input-group-text span-fix">Наименование</span>-->
-<!--               <input type="text" required class="form-control" id="inputName">-->
-<!--           </div>-->
-<!--           <div class="input-group mb-3">-->
-<!--               <span class="input-group-text span-fix">Цена в рублях</span>-->
-<!--               <input type="text" required class="form-control" id="inputCost">-->
-<!--           </div>-->
-<!--           <div class="input-group mb-3">-->
-<!--               <span class="input-group-text span-fix">Описание</span>-->
-<!--               <input type="text" required class="form-control" id="inputDescription">-->
-<!--           </div>-->
-<!--           <div class="input-group mb-3">-->
-<!--               <span class="input-group-text span-fix">Состав</span>-->
-<!--               <input type="text" required class="form-control" id="inputComposition">-->
-<!--           </div>-->
-<!--           <div class="input-group mb-3">-->
-<!--               <span class="input-group-text span-fix">Пищевая ценность</span>-->
-<!--               <input type="text" required class="form-control" id="inputWorth">-->
-<!--           </div>-->
-<!--           <div class="input-group mb-3">-->
-<!--               <span class="input-group-text span-fix">Вес (кг)</span>-->
-<!--               <input type="text" required class="form-control" id="inputWeight">-->
-<!--           </div>-->
+      <form action="javascript:productForm()">
+          <div class="input-group mb-3">
+              <span class="input-group-text span-fix">Наименование</span>
+              <input type="text" required class="form-control" id="inputName">
+          </div>
+          <div class="input-group mb-3">
+              <span class="input-group-text span-fix">Цена в рублях</span>
+              <input type="text" required class="form-control" id="inputCost">
+          </div>
+          <div class="input-group mb-3">
+              <span class="input-group-text span-fix">Описание</span>
+              <input type="text" required class="form-control" id="inputDescription">
+          </div>
+          <div class="input-group mb-3">
+              <span class="input-group-text span-fix">Состав</span>
+              <input type="text" required class="form-control" id="inputComposition">
+          </div>
+          <div class="input-group mb-3">
+              <span class="input-group-text span-fix">Пищевая ценность</span>
+              <input type="text" required class="form-control" id="inputWorth">
+          </div>
+          <div class="input-group mb-3">
+              <span class="input-group-text span-fix">Вес (кг)</span>
+              <input type="text" required class="form-control" id="inputWeight">
+          </div>
 
-<!--           <div class="input-group mb-3">-->
-<!--               <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Тип продукта</button>-->
-<!--               <ul class="dropdown-menu" id="dropdown-menu"></ul>-->
-<!--               <input type="text" required class="form-control" id="inputProductType" aria-label="Text input with dropdown button">-->
-<!--           </div>-->
+          <div class="input-group mb-3">
+              <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Тип продукта</button>
+              <ul class="dropdown-menu" id="dropdown-menu"></ul>
+              <input type="text" required class="form-control" id="inputProductType" aria-label="Text input with dropdown button">
+          </div>
 
-<!--           <input type="file" required class="form-control" id="file" name="file">-->
-<!--           <button type="submit" id="updatePhotoSubmit" class="btn btn-primary btn-lg" style="margin-top: 16px;">Отправить</button>-->
-<!--       </form>-->
-       <div class="input-group mb-3">
-           <span class="input-group-text span-fix">Наименование</span>
-           <input type="text" required class="form-control" id="inputName">
-       </div>
-       <div class="input-group mb-3">
-           <span class="input-group-text span-fix">Цена в рублях</span>
-           <input type="text" required class="form-control" id="inputCost">
-       </div>
-       <div class="input-group mb-3">
-           <span class="input-group-text span-fix">Описание</span>
-           <input type="text" required class="form-control" id="inputDescription">
-       </div>
-       <div class="input-group mb-3">
-           <span class="input-group-text span-fix">Состав</span>
-           <input type="text" required class="form-control" id="inputComposition">
-       </div>
-       <div class="input-group mb-3">
-           <span class="input-group-text span-fix">Пищевая ценность</span>
-           <input type="text" required class="form-control" id="inputWorth">
-       </div>
-       <div class="input-group mb-3">
-           <span class="input-group-text span-fix">Вес (кг)</span>
-           <input type="text" required class="form-control" id="inputWeight">
-       </div>
-
-       <div class="input-group mb-3">
-           <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Тип продукта</button>
-           <ul class="dropdown-menu" id="dropdown-menu"></ul>
-           <input type="text" required class="form-control" id="inputProductType" aria-label="Text input with dropdown button">
-       </div>
-
-       <input type="file" required class="form-control" id="file" name="file">
-       <button type="submit" id="updatePhotoSubmit" class="btn btn-primary btn-lg" style="margin-top: 16px;" onclick="productForm()">Отправить</button>
+          <input type="file" required class="form-control" id="file" name="file">
+          <input type="submit" id="updatePhotoSubmit" class="btn btn-primary btn-lg" style="margin-top: 16px;" value="Отправить">
+      </form>
    </div>
 
     <script th:src="@{~/scripts/admin.js}"></script>
